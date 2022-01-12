@@ -70,5 +70,3 @@
 
   // this is branch a 
 //  this in new datta
-
-//  thisi is secon d
