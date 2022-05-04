@@ -1,9 +1,12 @@
 // can check for shemale and more then one photo 
 // mabey some hot ones 
-
+let counter = 0
+let url_images_arr = []
   function generateTime() {
     let t = Math.random() * 1000
     console.log(t)
+      console.log("counter :" + counter)
+      console.log(url_images_arr)
     return t
   }
 
@@ -32,6 +35,7 @@
     "קוקסינל",
     "קוקסינלית",
     "טרנס"
+    
 
 
   ]
@@ -51,8 +55,12 @@
 
 
   function clickProfile() {
-    if ((!goodFit(unwantedWords) && Math.random() <= 0.8) || goodFit(wantedWords)) {
-      pos = 3
+    // if ((!goodFit(unwantedWords) && Math.random() <= 0.8) || goodFit(wantedWords)) {
+    if ( goodFit(wantedWords)) {
+
+      pos = 3 
+      counter ++
+      url_images_arr.push(document.getElementsByClassName("Bdrs(8px) Bgz(cv) Bgp(c) StretchedBox")[0].style.backgroundImage )
     } else {
       pos = 1
     }
@@ -103,3 +111,4 @@
 
 
 // new line here 
+//trhtsrnhnetrs
