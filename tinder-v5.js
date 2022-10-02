@@ -4,6 +4,7 @@ const but1 =
   document.getElementsByClassName(navButts)[0].children[1].children[0];
 const but3 =
   document.getElementsByClassName(navButts)[0].children[3].children[0];
+let notFound = true;
 
 function generateTime() {
   let t = Math.random() * 1000;
@@ -18,7 +19,7 @@ let wantedWords = [
   "trans",
   "lady",
   "transgender",
-  "switch",
+  "not a lady",
 ];
 
 function matchTxt(descTxt, txt) {
@@ -36,12 +37,12 @@ const showDescription = async () => {
       clButton[0].click();
       setTimeout(() => {
         resolve();
-      }, 2000);
+      }, 500);
     } else {
       setTimeout(() => {
         resolve();
-        alert("wtf");
-      }, 2000);
+        // alert("wtf");
+      }, 500);
     }
   });
 };
@@ -66,13 +67,14 @@ const clickProfile = async () => {
     if (await goodFit(wantedWords)) {
       document.getElementsByClassName("button Lts($ls-s)")[2].click();
       setTimeout(() => {
+        // reject("ladyboy found");
         resolve();
-      }, 1000);
+      }, 300);
     } else {
       document.getElementsByClassName("button Lts($ls-s)")[0].click();
       setTimeout(() => {
         resolve();
-      }, 1000);
+      }, 300);
     }
   });
 };
@@ -80,14 +82,18 @@ const clickProfile = async () => {
 function tinderRun() {
   return new Promise((resolve, reject) => {
     setTimeout(async () => {
-      await clickProfile();
+      try {
+        await clickProfile();
+      } catch (error) {
+        // notFound = false
+      }
       resolve("resolved");
     }, generateTime());
   });
 }
 
 async function loop() {
-  while (true) {
+  while (notFound) {
     await tinderRun();
   }
 }
