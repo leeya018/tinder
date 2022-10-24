@@ -64,7 +64,7 @@ async function goodFit(arr) {
 
 const clickProfile = async () => {
   return new Promise(async (resolve, reject) => {
-    if (await goodFit(wantedWords)) {
+    if ((await goodFit(wantedWords)) || Math.random() > 0.3) {
       document.getElementsByClassName("button Lts($ls-s)")[2].click();
       setTimeout(() => {
         // reject("ladyboy found");
